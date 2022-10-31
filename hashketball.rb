@@ -1,5 +1,3 @@
-require 'pry'
-
 # Write your code below game_hash
 def game_hash
   {
@@ -129,48 +127,3 @@ def game_hash
 end
 
 # Write code here
-def all_players
-  combined_players = []
-  game_hash.each { |team, info| info[:players].each { |player| combined_players.push(player) } }
-  combined_players
-end
-
-def get_player( name )
-  all_players.find { |player| player[:player_name] === name }
-end
-
-def just_teams
-  game_hash.map { |team, info| info }
-end
-
-def num_points_scored( player )
-  get_player( player )[ :points ]
-end
-
-def shoe_size( player )
-  get_player( player )[ :shoe ]
-end
-
-def team_colors( name )
-  just_teams.find { |team| team[:team_name] === name }[:colors]
-end
-
-def team_names
-  just_teams.map { |team| team[:team_name] }
-end
-
-def player_numbers( name )
-  just_teams.find { |team| team[:team_name] === name }[:players].map { |player| player[:number] }
-end
-
-def player_stats( player )
-  get_player( player )
-end
-
-def big_shoe_rebounds
-  all_players.sort_by { |player| player[:shoe] }.last[:rebounds]
-end
-
-
-
-# binding.pry
